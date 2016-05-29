@@ -3,6 +3,7 @@
     "description": "A Laravel package for the Google Drive API",
     "type": "library",
     "license": "Beerware",
+    "keywords": ["laravel", "google", "drive", "google-drive", "google-api"],
     "authors": [
         {
             "name": "dees040",

@@ -37,9 +37,18 @@ class DriveAPI
     public $files = [];
 
     /**
+     * Config array
+     * 
      * @var array
      */
     private $config = [];
+
+    /**
+     * Check if the class is initialized.
+     * 
+     * @var bool
+     */
+    private $initialized = false;
 
     /**
      * DriveAPI constructor.
@@ -54,6 +63,8 @@ class DriveAPI
      * Initialize the class.
      *
      * @param $pathToConfig
+     * @return $this
+     * 
      * @throws ConfigNotFoundException
      */
     private function initialize($pathToConfig)
@@ -66,6 +77,10 @@ class DriveAPI
 
         $this->setClient($client);
         $this->service = new Service($this->getClient());
+
+        $this->initialized = true;
+        
+        return $this;
     }
 
     /**
@@ -74,9 +89,9 @@ class DriveAPI
      * @param null $pathToConfig
      * @return $this
      */
-    public static function create($pathToConfig = null)
+    public function create($pathToConfig = null)
     {
-        return new self($pathToConfig);
+        return $this->initialize($pathToConfig);
     }
 
     /**
@@ -139,6 +154,15 @@ class DriveAPI
      */
     public function authUrl($scope = null)
     {
+        return $this->generateAuthUrl($scope);
+    }
+
+    private function generateAuthUrl($scope)
+    {
+        if (!$this->initialized) {
+            $this->initialize(null);
+        }
+
         return $this->client->createAuthUrl($scope);
     }
 

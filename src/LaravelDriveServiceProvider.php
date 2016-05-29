@@ -24,6 +24,8 @@ class LaravelDriveServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('driveapi', function () {
+            return new DriveAPI; //Add the proper namespace at the top
+        });
     }
 }

@@ -11,7 +11,7 @@ Installation
 Install the latest version using composer:
 
 ```
-composer require owow/laravel-drive
+composer require ???/laravel-drive
 ```
 
 Make sure you require the autoload.
