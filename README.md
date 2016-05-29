@@ -1,9 +1,9 @@
-Laravel Drive
+Laravel Google Drive
 ====
 
 **README will be fully filled after development of the class.**
 
-A Laravel package/wrapper for the Google Drive API
+A Laravel wrapper for the Google Drive API. It's very basic though.
 
 Installation
 ------------
@@ -11,7 +11,7 @@ Installation
 Install the latest version using composer:
 
 ```
-composer require ???/laravel-drive
+composer require owow/laravel-drive
 ```
 
 Make sure you require the autoload.
